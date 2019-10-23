@@ -6,6 +6,10 @@
         <prismic-image :field="item.partner_logo"/>
       </div>
     </div>
+    <prismic-rich-text :field="slice.primary.partners_logos_paragraph"/>
+    <prismic-link class="call-to-action" :field="slice.primary.partners_logos_cta_link">
+      {{ slice.primary.partners_logos_cta_label }}
+    </prismic-link>
   </section>
 </template>
 

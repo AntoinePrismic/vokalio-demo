@@ -1,6 +1,6 @@
 <template>
   <header class="site-header"> 
-    <nuxt-link to="/" class="logo">a</nuxt-link>
+
     <nav>
       <ul>
         <li v-for="menuLink in menuLinks" :key="menuLink.id">
@@ -8,6 +8,7 @@
         </li>
       </ul>
     </nav>
+    <nuxt-link to="/" class="logo"></nuxt-link>
   </header>
 </template>
 
@@ -20,8 +21,8 @@ export default {
 
 <style lang="sass">
 .site-header
-  height: 30px
-  padding: 20px 0
+  height: 74px
+  padding: 0
   color: #484d52
   font-weight: 700
   a
@@ -40,16 +41,32 @@ export default {
 .site-header
   .logo
     display: inline-block
-    font-size: 22px
     font-weight: 900
-  nav
+    text-align: center
+    background-color: transparent
+    background-image: url(https://www.vokal.io/images/logo-white.svg)
+    background-position: top right
+    background-repeat: no-repeat
+    background-size: 100%
+    height: 74px
+    overflow: hidden
+    width: 160px
     float: right
+  nav
+    float: left
+    margin-top: 20px
     ul
       margin: 0
       padding-left: 0
     li
       display: inline-block
       margin-left: 40px
+      font-size: 16px
+      font-weight: 700
+      a
+        position: relative
+        font-weight: 900
+        text-transform: uppercase
 
 @media (max-width: 1060px)
   .site-header
