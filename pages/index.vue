@@ -1,13 +1,18 @@
 <template>
   <section class="homepage">
     <!-- Vue tag to add header component -->
-    <header-prismic :menuLinks="menuLinks"/>
+    <header-prismic :menuLinks="menu.data.menu_links"/>
     <!-- Button to edit document in dashboard -->
-    <prismic-edit-button :documentId="documentId"/>
+    <prismic-edit-button :documentId="document.id"/>
     <!-- Banner component -->
-    <homepage-banner :banner="banner"/>
+    <homepage-banner
+      v-if="document.data.homepage_banner.length"
+      :banner="document.data.homepage_banner[0]"
+    />
     <!-- Slices block component -->
-    <slices-block :slices="slices"/>
+    <slices-block
+      :slices="document.data.page_content"
+    />
   </section>
 </template>
 
@@ -28,7 +33,7 @@ export default {
   },
   head () {
     return {
-      title: 'test deploy',
+      title: this.document.data.homepage_title,
     }
   },
   async asyncData({context, error, req}) {
@@ -36,33 +41,15 @@ export default {
       // Fetching the API object
       const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
 
-      // Query to get the home page content
-      let document = {}
-      const result = await api.getSingle('homepage')
-      document = result.data
-
-      // Setting the banner as a variable
-      let banner = document.homepage_banner[0]
-
-      // Query to get the menu content
-      let menuContent = {}
+      const document = await api.getSingle('homepage')
       const menu = await api.getSingle('menu')
-      menuContent = menu.data
 
       // Load the edit button
       if (process.client) window.prismic.setupEditButton()
 
       return {
-        // Page content
         document,
-        documentId: result.id,
-        banner,
-        // Set slices as variable
-        slices: document.page_content,
-
-        // Menu
-        menuContent,
-        menuLinks: menuContent.menu_links
+        menu
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
