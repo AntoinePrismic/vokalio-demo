@@ -28,7 +28,7 @@ export default {
   },
   head () {
     return {
-      title: 'Prismic Nuxt.js Multi Page Website',
+      title: 'test deploy',
     }
   },
   async asyncData({context, error, req}) {
