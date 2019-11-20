@@ -4,7 +4,6 @@
     <prismic-rich-text :field="slice.primary.featured_products_subtitle"/>
     <div class="featured_products">
       <div v-for="item in slice.items" :key="item.id" class="featured_products-item">
-        <prismic-image :field="item.partner_logo"/>
       </div>
     </div>
     <prismic-link class="call-to-action" :field="slice.primary.shop_cta_link">
