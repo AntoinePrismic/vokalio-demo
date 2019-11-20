@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.partners_logos
+.featured_products
   display: -webkit-box
   // OLD - iOS 6-, Safari 3.1-6, BB7
   display: -ms-flexbox
@@ -33,7 +33,7 @@ export default {
   justify-content: center
   width: 100%
 
-.partners_logos-item
+.featured_products-item
   -webkit-box-flex: 1 1 16%
   -moz-box-flex: 1 1 16%
   -webkit-flex: 1 1 16%
