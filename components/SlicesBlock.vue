@@ -52,9 +52,9 @@ export default {
     QuoteSlice,
     FullWidthImage,
     ImageGallery,
+    ImageHighlight,
     PartnersLogos,
-    FeaturedProducts,
-    ImageHighlight
+    FeaturedProducts
   },
 }
 </script>
