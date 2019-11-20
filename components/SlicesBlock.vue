@@ -52,6 +52,7 @@ export default {
     QuoteSlice,
     FullWidthImage,
     PartnersLogos,
+    FeaturedProducts,
     ImageGallery,
     ImageHighlight
   },
