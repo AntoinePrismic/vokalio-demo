@@ -2,7 +2,7 @@
     <section class="homepage-banner" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + banner.image.url + ')' }">
       <!-- Template for page title. -->
       <div class="banner-content container">
-        <h1 class="banner-title" style="font-weight:bold;color:#000000">
+        <h1 class="banner-title" style="font-weight:bold;color:#000000 !important">
           {{ $prismic.richTextAsPlain(banner.title) }}
         </h1>
         <!-- Template for page tagline. -->
